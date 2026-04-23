@@ -1,0 +1,58 @@
+
+The table covers 35 examples across 15 ARIA roles —
+use the filter pills at the top to narrow by role.
+Here's a quick summary of what's included:
+
+Role	Code example	Action	Key note
+1	textbox	get_by_role("textbox", name="Full name").fill("John")	fill()	Matches via placeholder / label / aria-label
+2	textbox	get_by_role("textbox", name="Email").type("a@b.com")	type()	Dispatches real keydown/keyup events
+
+3	textbox	get_by_role("textbox", name="Search").press_sequentially("AI", delay=80)	press_sequentially()	Char-by-char typing; triggers autocomplete
+4	textbox	get_by_role("textbox", name="name", exact=False).fill("John")	fill()	exact=False → partial / case-insensitive name match
+5	textbox	page.locator("form").get_by_role("textbox", name="City").fill("NYC")	fill()	Scoped to parent locator to avoid duplicate matches
+6	textbox	get_by_role("textbox", name="Bio").clear()	clear()	Clears existing text before new input
+
+7	button	get_by_role("button", name="Submit").click()	click()	Matches or role=button elements
+8	button	get_by_role("button", name="Delete").click(button="right")	click(right)	Right-click to trigger context menus
+9	button	get_by_role("button", name="Save").dblclick()	dblclick()	Double-click; fires two click events
+10	button	get_by_role("button", name="Upload").hover()	hover()	Triggers CSS :hover / tooltip reveal
+
+11	button	expect(get_by_role("button", name="Pay")).to_be_enabled()	assertion	Assert button is not disabled before clicking
+12	button	get_by_role("button", name="Next").press("Enter")	press()	Keyboard-activate a focused button
+13	checkbox	get_by_role("checkbox", name="Remember me").check()	check()	Checks only if unchecked; safe to call multiple times
+14	checkbox	get_by_role("checkbox", name="Terms").uncheck()	uncheck()	Unchecks only if checked
+
+15	checkbox	expect(get_by_role("checkbox", name="Agree")).to_be_checked()	assertion	Verify checked state
+16	radio	get_by_role("radio", name="Monthly").check()	check()	Selects a radio option within its group
+17	radio	expect(get_by_role("radio", name="Annual")).to_be_checked()	assertion	Assert radio is selected
+18	combobox	get_by_role("combobox", name="Country").select_option("India")	select_option()	Works on
+
+19	combobox	get_by_role("combobox", name="Country").select_option(index=2)	select_option(index)	Select by zero-based index
+20	combobox	get_by_role("combobox", name="Tags").select_option(["Python","JS"])	select_option(multi)	Multi-select — pass a list
+21	link	get_by_role("link", name="Docs").click()	click()	Matches elements
+
+22	link	get_by_role("link", name="Home").get_attribute("href")	get_attribute()	Extract href without navigating
+23	link	expect(get_by_role("link", name="Sign up")).to_be_visible()	assertion	Assert link is in viewport
+24	heading	get_by_role("heading", name="Dashboard")	locator	Matches h1–h6 by accessible text
+
+25	heading	get_by_role("heading", level=2).all_text_contents()	all_text_contents()	Collect all h2 text on the page
+26	heading	expect(get_by_role("heading", name="Welcome")).to_be_visible()	assertion	Confirm page section loaded
+27	listitem	get_by_role("listitem").nth(0).text_content()	text_content()	First
+in the page
+28	listitem	get_by_role("listitem").count()	count()	Total number of list items
+29	dialog	page.locator("[role='dialog']").get_by_role("button", name="Close").click()	click()	Scope button locator inside a modal dialog
+30	dialog	expect(get_by_role("dialog")).to_be_visible()	assertion	Assert modal is open
+
+31	tab	get_by_role("tab", name="Settings").click()	click()	Activate a tab panel; check aria-selected after
+
+32	tab	expect(get_by_role("tab", name="Profile")).to_have_attribute("aria-selected","true")	assertion	Assert tab is active
+33	img	expect(get_by_role("img", name="Logo")).to_be_visible()	assertion	Matches Logo via alt text
+34	alert	expect(get_by_role("alert")).to_contain_text("Success")	assertion	Assert toast / inline error message
+35	spinbutton	get_by_role("spinbutton", name="Quantity").fill("5")	fill()	Matches
+
+36	spinbutton	get_by_role("spinbutton", name="Qty").press("ArrowUp")	press()	Increment with keyboard arrow key
+37	slider	get_by_role("slider", name="Volume").fill("75")	fill()
+
+
+
+

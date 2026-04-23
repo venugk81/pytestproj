@@ -1,0 +1,9 @@
+pip install -U pytest pytest-html
+python -m pytest --html=report.html
+
+pytest -s -v fixtureseg
+pytest -s -v fixtureseg/test_fix3.py
+
+run the sprint from terminal:
+pytest playwrighttests/test_SecondPlaywrightScript.py --headed
+pytest playwrighttests/test_SecondPlaywrightScript.py::test_method --headed
