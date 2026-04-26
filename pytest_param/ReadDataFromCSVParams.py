@@ -10,6 +10,7 @@ def get_csv_data():
     df = pd.DataFrame()
     try:
         file_path = Path(__file__).parent.parent / "data" / "employee.csv"
+
         # file_path = "/Users/venug/PycharmProjects/pytestproj/data/employee.csv"
         if os.path.exists(file_path):
             df = pd.read_csv(file_path)
