@@ -3,3 +3,4 @@ pytest-html
 playwright
 pytest-playwright
 pandas
+openpyxl
