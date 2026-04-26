@@ -12,8 +12,8 @@ import os
 
 
 def get_csv_data(test):
-    filename = os.path.basename(__file__)
-    print(filename)
+    # filename = os.path.basename(__file__)
+    # print(filename)
     print("Test--------------: ", test)
     print("\n******************* How many times it is coming to get_csv_data**************")
     return [
@@ -25,6 +25,6 @@ def get_csv_data(test):
 
 @pytest.mark.parametrize("map_data", get_csv_data("value passed "))
 def test_dynamic_csv(map_data):
-    print(f"map_data======== {map_data}")
+    print(f"\nmap_data======== {map_data.values()}")
     for k, v in map_data.items():
         print(f"{k}======== {v}")

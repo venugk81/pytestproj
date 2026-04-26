@@ -11,3 +11,8 @@ print(sq(2))
 num =[1,2,4]
 x = list(map(lambda x: x*2 if x>1 else x, num))
 print(x)
+
+def greet(name: str) -> str:
+    return f"Hello {name}"
+
+print(greet("venu"))

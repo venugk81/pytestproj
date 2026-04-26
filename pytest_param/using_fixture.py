@@ -14,3 +14,4 @@ def num2list(request):
 
 def test_list(num2list):
     print("num2list: ", num2list)
+    print(f"min: {min(num2list)}, max: {max(num2list)}, sum: {sum(num2list)} avg: {sum(num2list)/len(num2list)}")
