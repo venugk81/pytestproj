@@ -1,20 +1,21 @@
 import os
+from datetime import datetime
 import pandas as pd
 import pytest
-
-from pytest_param.FileUtils import get_csv_data, get_excel_data
-
+from pytest_param.FileUtils import get_excel_data
 
 @pytest.mark.parametrize("map_data", get_excel_data("data", "E045", "Employee"))
 def test_dynamic_excel(map_data):
     print(f"\nmap_data======== {map_data.values()}")
     for k, v in map_data.items():
         print(f"{k}======== {v}")
+    ##convert back into DF
+    map_dt = pd.DataFrame([map_data])
+    map_dt["Status"] = "Pass"
+    map_dt["Execution Time"] = datetime.now()
 
-
-
-
-
+    print(map_dt)
+    map_dt.to_csv("export.csv", index=False)
 
 #
 #

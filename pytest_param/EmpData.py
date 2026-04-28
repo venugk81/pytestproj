@@ -10,12 +10,17 @@ def test_dynamic_csv(map_data):
     print(f"\nmap_data======== {map_data.values()}")
     for k, v in map_data.items():
         print(f"{k}======== {v}")
+    map_dt = pd.DataFrame([map_data])
+    map_dt.to_csv("data/export.csv", index=False)
 
 
-
-
-
-
+    # df_new = pd.DataFrame(new_data)
+    #
+    # # Append new rows
+    # df_updated = pd.concat([df_existing, df_new], ignore_index=True)
+    #
+    # # Save back to same CSV
+    # df_updated.to_csv("data/test.csv", index=False)
 
 
 from pathlib import Path
